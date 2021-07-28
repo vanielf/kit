@@ -257,7 +257,7 @@ export async function prerender({ cwd, out, log, config, build_data, fallback, a
 						// TODO warn that query strings have no effect on statically-exported pages
 					}
 
-					await visit(parsed.pathname.replace(config.kit.paths.base, ''), path);
+					await visit(parsed.pathname.replace(config.kit.paths.base, ''), decodeURI(path));
 				}
 			}
 		}
