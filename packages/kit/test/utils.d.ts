@@ -22,10 +22,14 @@ export const test: TestType<
 			};
 			clicknav(selector: string, options?: { timeout?: number }): Promise<void>;
 			in_view(selector: string): Promise<boolean>;
+			get_computed_style(selector: string, prop: string): Promise<string>;
 			/**
 			 * `handleError` defines the shape
 			 */
 			read_errors(href: string): Record<string, any>;
+			start_server(
+				handler: (req: IncomingMessage, res: ServerResponse) => void
+			): Promise<{ port: number }>;
 			page: PlaywrightTestArgs['page'] & {
 				goto: (
 					url: string,
@@ -37,13 +41,5 @@ export const test: TestType<
 >;
 
 export const config: PlaywrightTestConfig;
-
-export const start_server: (
-	handler: (req: IncomingMessage, res: ServerResponse) => void,
-	start?: number
-) => Promise<{
-	port: number;
-	close(): Promise<void>;
-}>;
 
 export const plugin: () => Plugin;

@@ -1,10 +1,17 @@
-import { test } from 'uvu';
-import * as assert from 'uvu/assert';
-import { webcrypto } from 'crypto';
+import { webcrypto } from 'node:crypto';
+import { assert, beforeAll, test } from 'vitest';
 import { Csp } from './csp.js';
 
-// @ts-expect-error
-globalThis.crypto = webcrypto;
+// TODO: remove after bumping peer dependency to require Node 20
+if (!globalThis.crypto) {
+	// @ts-expect-error
+	globalThis.crypto = webcrypto;
+}
+
+beforeAll(() => {
+	// @ts-expect-error
+	globalThis.__SVELTEKIT_DEV__ = false;
+});
 
 test('generates blank CSP header', () => {
 	const csp = new Csp(
@@ -14,7 +21,6 @@ test('generates blank CSP header', () => {
 			reportOnly: {}
 		},
 		{
-			dev: false,
 			prerender: false
 		}
 	);
@@ -36,7 +42,6 @@ test('generates CSP header with directive', () => {
 			}
 		},
 		{
-			dev: false,
 			prerender: false
 		}
 	);
@@ -58,7 +63,6 @@ test('generates CSP header with nonce', () => {
 			}
 		},
 		{
-			dev: false,
 			prerender: false
 		}
 	);
@@ -88,7 +92,6 @@ test('skips nonce with unsafe-inline', () => {
 			}
 		},
 		{
-			dev: false,
 			prerender: false
 		}
 	);
@@ -112,7 +115,6 @@ test('skips hash with unsafe-inline', () => {
 			}
 		},
 		{
-			dev: false,
 			prerender: false
 		}
 	);
@@ -136,7 +138,6 @@ test('skips frame-ancestors, report-uri, sandbox from meta tags', () => {
 			reportOnly: {}
 		},
 		{
-			dev: false,
 			prerender: false
 		}
 	);
@@ -153,6 +154,9 @@ test('skips frame-ancestors, report-uri, sandbox from meta tags', () => {
 });
 
 test('adds unsafe-inline styles in dev', () => {
+	// @ts-expect-error
+	globalThis.__SVELTEKIT_DEV__ = true;
+
 	const csp = new Csp(
 		{
 			mode: 'hash',
@@ -165,7 +169,6 @@ test('adds unsafe-inline styles in dev', () => {
 			}
 		},
 		{
-			dev: true,
 			prerender: false
 		}
 	);
@@ -185,6 +188,9 @@ test('adds unsafe-inline styles in dev', () => {
 
 test.skip('removes strict-dynamic in dev', () => {
 	['default-src', 'script-src'].forEach((name) => {
+		// @ts-expect-error
+		globalThis.__SVELTEKIT_DEV__ = true;
+
 		const csp = new Csp(
 			{
 				mode: 'hash',
@@ -197,7 +203,6 @@ test.skip('removes strict-dynamic in dev', () => {
 				}
 			},
 			{
-				dev: true,
 				prerender: false
 			}
 		);
@@ -222,7 +227,6 @@ test('uses hashes when prerendering', () => {
 			}
 		},
 		{
-			dev: false,
 			prerender: true
 		}
 	);
@@ -248,7 +252,6 @@ test('always creates a nonce when template needs it', () => {
 			reportOnly: {}
 		},
 		{
-			dev: false,
 			prerender: false
 		}
 	);
@@ -267,11 +270,8 @@ test('throws when reportOnly contains directives but no report-uri or report-to'
 				}
 			},
 			{
-				dev: false,
 				prerender: false
 			}
 		);
 	}, '`content-security-policy-report-only` must be specified with either the `report-to` or `report-uri` directives, or both');
 });
-
-test.run();

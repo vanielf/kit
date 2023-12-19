@@ -1,5 +1,5 @@
-import { readFileSync, writeFileSync } from 'fs';
-import { fileURLToPath } from 'url';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { rollup } from 'rollup';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -7,16 +7,8 @@ import json from '@rollup/plugin-json';
 
 const files = fileURLToPath(new URL('./files', import.meta.url).href);
 
-/** @type {import('.').default} */
+/** @type {import('./index.js').default} */
 export default function (opts = {}) {
-	// TODO remove for 1.0
-	// @ts-expect-error
-	if (opts.env) {
-		throw new Error(
-			'options.env has been removed in favour of options.envPrefix. Consult the adapter-node README: https://github.com/sveltejs/kit/tree/master/packages/adapter-node'
-		);
-	}
-
 	const { out = 'build', precompress, envPrefix = '' } = opts;
 
 	return {
@@ -47,7 +39,8 @@ export default function (opts = {}) {
 
 			writeFileSync(
 				`${tmp}/manifest.js`,
-				`export const manifest = ${builder.generateManifest({ relativePath: './' })};`
+				`export const manifest = ${builder.generateManifest({ relativePath: './' })};\n\n` +
+					`export const prerendered = new Set(${JSON.stringify(builder.prerendered.paths)});\n`
 			);
 
 			const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
@@ -64,14 +57,23 @@ export default function (opts = {}) {
 					// dependencies could have deep exports, so we need a regex
 					...Object.keys(pkg.dependencies || {}).map((d) => new RegExp(`^${d}(\\/.*)?$`))
 				],
-				plugins: [nodeResolve({ preferBuiltins: true }), commonjs(), json()]
+				plugins: [
+					nodeResolve({
+						preferBuiltins: true,
+						exportConditions: ['node']
+					}),
+					// @ts-ignore https://github.com/rollup/plugins/issues/1329
+					commonjs({ strictRequires: true }),
+					// @ts-ignore https://github.com/rollup/plugins/issues/1329
+					json()
+				]
 			});
 
 			await bundle.write({
 				dir: `${out}/server`,
 				format: 'esm',
 				sourcemap: true,
-				chunkFileNames: `chunks/[name]-[hash].js`
+				chunkFileNames: 'chunks/[name]-[hash].js'
 			});
 
 			builder.copy(files, out, {
@@ -79,7 +81,8 @@ export default function (opts = {}) {
 					ENV: './env.js',
 					HANDLER: './handler.js',
 					MANIFEST: './server/manifest.js',
-					SERVER: `./server/index.js`,
+					SERVER: './server/index.js',
+					SHIMS: './shims.js',
 					ENV_PREFIX: JSON.stringify(envPrefix)
 				}
 			});

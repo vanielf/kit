@@ -1,22 +1,333 @@
 # create-svelte
 
+## 6.0.3
+
+### Patch Changes
+
+- fix: remove unnecessary @types/cookie package ([#11375](https://github.com/sveltejs/kit/pull/11375))
+
+## 6.0.2
+
+### Patch Changes
+
+- fix: use vitest 1.0 in playwright + vitest template ([#11376](https://github.com/sveltejs/kit/pull/11376))
+
+## 6.0.1
+
+### Patch Changes
+
+- chore: simplify `.prettierignore` ([#11349](https://github.com/sveltejs/kit/pull/11349))
+
+## 6.0.0
+
+### Major Changes
+
+- feat: create projects with SvelteKit 2 ([#11236](https://github.com/sveltejs/kit/pull/11236))
+
+- breaking: require Node 18.13 or newer ([#11172](https://github.com/sveltejs/kit/pull/11172))
+
+### Minor Changes
+
+- feat: update vitest to 1.0 ([#11196](https://github.com/sveltejs/kit/pull/11196))
+
+## 5.3.4
+
+### Patch Changes
+
+- chore: upgrade to prettier 3.1.1 ([#11304](https://github.com/sveltejs/kit/pull/11304))
+
+## 5.3.3
+
+### Patch Changes
+
+- fix: call Svelte 5 an alpha rather than beta ([#11119](https://github.com/sveltejs/kit/pull/11119))
+
+## 5.3.2
+
+### Patch Changes
+
+- chore: add type declaration to `.eslintrc.cjs` files ([#11091](https://github.com/sveltejs/kit/pull/11091))
+
+## 5.3.1
+
+### Patch Changes
+
+- chore: upgrade eslint-config-prettier ([#11037](https://github.com/sveltejs/kit/pull/11037))
+
+## 5.3.0
+
+### Minor Changes
+
+- feat: upgrade to prettier 3 and prettier-plugin-svelte 3 ([#10410](https://github.com/sveltejs/kit/pull/10410))
+
+### Patch Changes
+
+- fix: correctly configure `module` and `noEmit` tsconfig and jsconfig properties ([#11029](https://github.com/sveltejs/kit/pull/11029))
+
+## 5.2.0
+
+### Minor Changes
+
+- feat: add option to try out Svelte 5 beta ([#11026](https://github.com/sveltejs/kit/pull/11026))
+
+## 5.1.1
+
+### Patch Changes
+
+- fix: specified `initial-scale=1` on all viewport meta tags ([#10793](https://github.com/sveltejs/kit/pull/10793))
+
+- feat: make output reflect user's choice of package manager ([#10811](https://github.com/sveltejs/kit/pull/10811))
+
+## 5.1.0
+
+### Minor Changes
+
+- chore: remove `resolution-mode=highest` in template `.npmrc` ([#10635](https://github.com/sveltejs/kit/pull/10635))
+
+### Patch Changes
+
+- feat: improve sverdle reactivity ([#10670](https://github.com/sveltejs/kit/pull/10670))
+
+## 5.0.6
+
+### Patch Changes
+
+- chore: bump typescript-eslint to v6 ([#10371](https://github.com/sveltejs/kit/pull/10371))
+
+## 5.0.5
+
+### Patch Changes
+
+- chore: upgrade `vitest` to 0.34.0 and `@clack/prompts` to 0.7.0 ([#10240](https://github.com/sveltejs/kit/pull/10240))
+
+## 5.0.4
+
+### Patch Changes
+
+- chore: upgrade @fontsource/fira-mono to v5 ([#10445](https://github.com/sveltejs/kit/pull/10445))
+
+- chore: upgrade to vitest 0.33.0 ([#10445](https://github.com/sveltejs/kit/pull/10445))
+
+## 5.0.3
+
+### Patch Changes
+
+- chore: bump Vite and Svelte dependencies ([#10330](https://github.com/sveltejs/kit/pull/10330))
+
+- fix: create lib folder in skeleton project ([#10341](https://github.com/sveltejs/kit/pull/10341))
+
+## 5.0.2
+
+### Patch Changes
+
+- fix: npm test should run unit tests ([#10241](https://github.com/sveltejs/kit/pull/10241))
+
+- chore: upgrade vitest ([#10236](https://github.com/sveltejs/kit/pull/10236))
+
+## 5.0.1
+
+### Patch Changes
+
+- chore: use satisfies keyword in jsdocs, in create-svelte default template ([#10203](https://github.com/sveltejs/kit/pull/10203))
+
+## 5.0.0
+
+### Major Changes
+
+- breaking: install Svelte 4 ([#10217](https://github.com/sveltejs/kit/pull/10217))
+
+## 4.2.0
+
+### Minor Changes
+
+- feat: Add `data-sveltekit-preload-data` to lib template ([#9863](https://github.com/sveltejs/kit/pull/9863))
+
+## 4.1.1
+
+### Patch Changes
+
+- fix: default playwright globs ([#9795](https://github.com/sveltejs/kit/pull/9795))
+
+- fix: remove obsolete `ignorePatterns: ['*.cjs']` from .eslintrc.cjs ([#9797](https://github.com/sveltejs/kit/pull/9797))
+
+## 4.1.0
+
+### Minor Changes
+
+- feat: set `resolution-mode=highest` in generated `.npmrc` ([#9781](https://github.com/sveltejs/kit/pull/9781))
+
+## 4.0.0
+
+### Major Changes
+
+- feat: switch default ESLint plugin from `eslint-plugin-svelte3` to `eslint-plugin-svelte` ([#9749](https://github.com/sveltejs/kit/pull/9749))
+
+## 3.3.1
+
+### Patch Changes
+
+- feat: upgrade to Vite 4.3 for faster build times ([#9737](https://github.com/sveltejs/kit/pull/9737))
+
+- fix: generate tsconfig/jsconfig correctly for library option ([#9712](https://github.com/sveltejs/kit/pull/9712))
+
+## 3.3.0
+
+### Minor Changes
+
+- feat: ignore test files in library skeleton package.json ([#9584](https://github.com/sveltejs/kit/pull/9584))
+
+## 3.2.0
+
+### Minor Changes
+
+- feat: upgrade to TypeScript 5 ([#9435](https://github.com/sveltejs/kit/pull/9435))
+
+### Patch Changes
+
+- chore: upgrade to Vite 4.2 ([#9434](https://github.com/sveltejs/kit/pull/9434))
+
+## 3.1.2
+
+### Patch Changes
+
+- fix: prevent duplicated lines in project creation CLI ([#9346](https://github.com/sveltejs/kit/pull/9346))
+
+## 3.1.1
+
+### Patch Changes
+
+- chore: Add hint for toggling additional options during scaffolding flow. ([#9318](https://github.com/sveltejs/kit/pull/9318))
+
+## 3.1.0
+
+### Minor Changes
+
+- feat: use `@clack/prompts` ([#9219](https://github.com/sveltejs/kit/pull/9219))
+
+## 3.0.4
+
+### Patch Changes
+
+- docs: inform about adapter-auto not supporting all environments ([#9196](https://github.com/sveltejs/kit/pull/9196))
+
+## 3.0.3
+
+### Patch Changes
+
+- chore: enhance library skeleton readme with some library instructions ([#9128](https://github.com/sveltejs/kit/pull/9128))
+
+## 3.0.2
+
+### Patch Changes
+
+- chore: avoid running publint twice in prepublish ([#9126](https://github.com/sveltejs/kit/pull/9126))
+
+- fix: add `dist` to `pkg.files` and `.gitignore` ([#9124](https://github.com/sveltejs/kit/pull/9124))
+
+## 3.0.1
+
+### Patch Changes
+
+- fix: update dependency @sveltejs/package to v2.0.0 ([#9087](https://github.com/sveltejs/kit/pull/9087))
+
+## 3.0.0
+
+### Major Changes
+
+- breaking: update library scaffolding for `@sveltejs/package` version 2 ([#8922](https://github.com/sveltejs/kit/pull/8922))
+
+## 2.3.4
+
+### Patch Changes
+
+- fix: use new locator API to improve demo test ([#8988](https://github.com/sveltejs/kit/pull/8988))
+
+## 2.3.3
+
+### Patch Changes
+
+- chore: bump `@sveltejs/kit` and `@sveltejs/adapter-auto` versions ([#8740](https://github.com/sveltejs/kit/pull/8740))
+
+- fix: adjust vite config type to work with vitest options ([#8871](https://github.com/sveltejs/kit/pull/8871))
+
+## 2.3.2
+
+### Patch Changes
+
+- fix: remove duplicate space around JSDoc comments removed for TypeScript demo app ([#8684](https://github.com/sveltejs/kit/pull/8684))
+
+## 2.3.1
+
+### Patch Changes
+
+- chore: remove obsolete comment from templates ([#8620](https://github.com/sveltejs/kit/pull/8620))
+
+## 2.3.0
+
+### Minor Changes
+
+- fix: adjust `app.d.ts` to diminish confusion about imports ([#8477](https://github.com/sveltejs/kit/pull/8477))
+
+## 2.2.1
+
+### Patch Changes
+
+- fix: note why TypeScript is always installed for library projects and add jsconfig ([#8484](https://github.com/sveltejs/kit/pull/8484))
+
+## 2.2.0
+
+### Minor Changes
+
+- feat: use svelte-check v3 ([#8468](https://github.com/sveltejs/kit/pull/8468))
+
+## 2.1.0
+
+### Minor Changes
+
+- feat: create vite.config.ts for TypeScript projects ([#8258](https://github.com/sveltejs/kit/pull/8258))
+
+## 2.0.2
+
+### Patch Changes
+
+- fix: address flakiness in playwright test ([#8162](https://github.com/sveltejs/kit/pull/8162))
+
+## 2.0.1
+
+### Patch Changes
+
+- chore: no code change, rerelease as 2.0.1 for technical reasons ([#8161](https://github.com/sveltejs/kit/pull/8161))
+
+## 2.0.0
+
+### Major Changes
+
+First major release, see below for the history of changes that lead up to this.
+Starting from now all releases follow semver and changes will be listed as Major/Minor/Patch
+
+## 2.0.0-next.204
+
+### Patch Changes
+
+- feat: remove release candidate banner ([#8109](https://github.com/sveltejs/kit/pull/8109))
+
 ## 2.0.0-next.203
 
 ### Patch Changes
 
-- [chore] add peerDependencies, add more specific next version ([#8141](https://github.com/sveltejs/kit/pull/8141))
+- chore: add peerDependencies, add more specific next version ([#8141](https://github.com/sveltejs/kit/pull/8141))
 
 ## 2.0.0-next.202
 
 ### Patch Changes
 
-- [feat] vitePreprocess ([#8036](https://github.com/sveltejs/kit/pull/8036))
+- feat: vitePreprocess ([#8036](https://github.com/sveltejs/kit/pull/8036))
 
 ## 2.0.0-next.201
 
 ### Patch Changes
 
-- [breaking] upgrade to Vite 4 ([#7543](https://github.com/sveltejs/kit/pull/7543))
+- breaking: upgrade to Vite 4 ([#7543](https://github.com/sveltejs/kit/pull/7543))
 
 ## 2.0.0-next.200
 
@@ -52,8 +363,7 @@
 
 ### Patch Changes
 
-- [breaking] Replace `data-sveltekit-prefetch` with `-preload-code` and `-preload-data` ([#7776](https://github.com/sveltejs/kit/pull/7776))
-
+- breaking: Replace `data-sveltekit-prefetch` with `-preload-code` and `-preload-data` ([#7776](https://github.com/sveltejs/kit/pull/7776))
 - Upgrade to Playwright 1.28.1 ([#7696](https://github.com/sveltejs/kit/pull/7696))
 
 ## 2.0.0-next.194
@@ -84,7 +394,7 @@
 
 ### Patch Changes
 
-- [fix] remove Sverdle from Stackblitz template ([#7448](https://github.com/sveltejs/kit/pull/7448))
+- fix: remove Sverdle from Stackblitz template ([#7448](https://github.com/sveltejs/kit/pull/7448))
 
 ## 2.0.0-next.189
 
@@ -103,14 +413,13 @@
 ### Patch Changes
 
 - Add missing titles and descriptions to the Sverdle pages ([#7351](https://github.com/sveltejs/kit/pull/7351))
-
-* Use `justify-content: flex-start;` on Sverdle CSS to avoid compatibility issues ([#7352](https://github.com/sveltejs/kit/pull/7352))
+- Use `justify-content: flex-start;` on Sverdle CSS to avoid compatibility issues ([#7352](https://github.com/sveltejs/kit/pull/7352))
 
 ## 2.0.0-next.186
 
 ### Patch Changes
 
-- [feat] add reset option to update method of enhance ([#7326](https://github.com/sveltejs/kit/pull/7326))
+- feat: add reset option to update method of enhance ([#7326](https://github.com/sveltejs/kit/pull/7326))
 
 ## 2.0.0-next.185
 
@@ -128,7 +437,7 @@
 
 ### Patch Changes
 
-- [feat] extract and export types from create-svelte ([#7111](https://github.com/sveltejs/kit/pull/7111))
+- feat: extract and export types from create-svelte ([#7111](https://github.com/sveltejs/kit/pull/7111))
 
 ## 2.0.0-next.182
 
@@ -152,19 +461,19 @@
 
 ### Patch Changes
 
-- [breaking] rename App.PageError to App.Error ([#6963](https://github.com/sveltejs/kit/pull/6963))
+- breaking: rename App.PageError to App.Error ([#6963](https://github.com/sveltejs/kit/pull/6963))
 
 ## 2.0.0-next.178
 
 ### Patch Changes
 
-- [fix] prettier not formatting svelte files ([#6866](https://github.com/sveltejs/kit/pull/6866))
+- fix: prettier not formatting svelte files ([#6866](https://github.com/sveltejs/kit/pull/6866))
 
 ## 2.0.0-next.177
 
 ### Patch Changes
 
-- [chore] bump vite ([#6829](https://github.com/sveltejs/kit/pull/6829))
+- chore: bump vite ([#6829](https://github.com/sveltejs/kit/pull/6829))
 
 ## 2.0.0-next.176
 
@@ -176,9 +485,8 @@
 
 ### Patch Changes
 
-- [breaking] update use:enhance usage ([#6697](https://github.com/sveltejs/kit/pull/6697))
-
-* [breaking] hooks file rename ([#6697](https://github.com/sveltejs/kit/pull/6697))
+- breaking: update use:enhance usage ([#6697](https://github.com/sveltejs/kit/pull/6697))
+- breaking: hooks file rename ([#6697](https://github.com/sveltejs/kit/pull/6697))
 
 ## 2.0.0-next.174
 
@@ -190,7 +498,7 @@
 
 ### Patch Changes
 
-- [breaking] Replace `POST`/`PUT`/`PATCH`/`DELETE` in `+page.server.js` with `export const actions` ([#6469](https://github.com/sveltejs/kit/pull/6469))
+- breaking: Replace `POST`/`PUT`/`PATCH`/`DELETE` in `+page.server.js` with `export const actions` ([#6469](https://github.com/sveltejs/kit/pull/6469))
 
 ## 2.0.0-next.172
 
@@ -220,13 +528,13 @@
 
 ### Patch Changes
 
-- [chore] bump ts version and ensure it works with latest changes ([#6428](https://github.com/sveltejs/kit/pull/6428))
+- chore: bump ts version and ensure it works with latest changes ([#6428](https://github.com/sveltejs/kit/pull/6428))
 
 ## 2.0.0-next.167
 
 ### Patch Changes
 
-- [breaking] Replace `sveltekit:*` with valid HTML attributes like `data-sveltekit-*` ([#6170](https://github.com/sveltejs/kit/pull/6170))
+- breaking: Replace `sveltekit:*` with valid HTML attributes like `data-sveltekit-*` ([#6170](https://github.com/sveltejs/kit/pull/6170))
 
 ## 2.0.0-next.166
 
@@ -244,9 +552,8 @@
 
 ### Patch Changes
 
-- [breaking] rename `$app/env` to `$app/environment`, to disambiguate with `$env/...` ([#6334](https://github.com/sveltejs/kit/pull/6334))
-
-* Add svelte-kit sync to check scripts in checkjs templates ([#6339](https://github.com/sveltejs/kit/pull/6339))
+- breaking: rename `$app/env` to `$app/environment`, to disambiguate with `$env/...` ([#6334](https://github.com/sveltejs/kit/pull/6334))
+- Add svelte-kit sync to check scripts in checkjs templates ([#6339](https://github.com/sveltejs/kit/pull/6339))
 
 ## 2.0.0-next.163
 
@@ -264,16 +571,14 @@
 
 ### Patch Changes
 
-- [feat] add App.PageData type ([#6226](https://github.com/sveltejs/kit/pull/6226))
+- feat: add App.PageData type ([#6226](https://github.com/sveltejs/kit/pull/6226))
 
 ## 2.0.0-next.160
 
 ### Patch Changes
 
 - Create TypeScript/JSDoc/vanilla versions of shared template .ts files ([#6253](https://github.com/sveltejs/kit/pull/6253))
-
-* Create vite.config.ts when creating TypeScript project ([#6253](https://github.com/sveltejs/kit/pull/6253))
-
+- Create vite.config.ts when creating TypeScript project ([#6253](https://github.com/sveltejs/kit/pull/6253))
 - Invalidate data after form submission ([#6254](https://github.com/sveltejs/kit/pull/6254))
 
 ## 2.0.0-next.159
@@ -287,8 +592,7 @@
 ### Patch Changes
 
 - Add notes about includes/excludes and path aliases ([#6085](https://github.com/sveltejs/kit/pull/6085))
-
-* setup prettier plugin-search-dirs to enable use with pnpm ([#6101](https://github.com/sveltejs/kit/pull/6101))
+- setup prettier plugin-search-dirs to enable use with pnpm ([#6101](https://github.com/sveltejs/kit/pull/6101))
 
 ## 2.0.0-next.157
 
@@ -313,8 +617,7 @@
 ### Patch Changes
 
 - remove session remnants ([#5966](https://github.com/sveltejs/kit/pull/5966))
-
-* remove outdated notes in `api.ts` ([#5964](https://github.com/sveltejs/kit/pull/5964))
+- remove outdated notes in `api.ts` ([#5964](https://github.com/sveltejs/kit/pull/5964))
 
 ## 2.0.0-next.153
 
@@ -332,7 +635,7 @@
 
 ### Patch Changes
 
-- [feat] include reference to `@sveltejs/kit` types in ambient file ([#5745](https://github.com/sveltejs/kit/pull/5745))
+- feat: include reference to `@sveltejs/kit` types in ambient file ([#5745](https://github.com/sveltejs/kit/pull/5745))
 
 ## 2.0.0-next.150
 
@@ -356,15 +659,14 @@
 
 ### Patch Changes
 
-- [chore] upgrade TypeScript to 4.7.4 ([#5414](https://github.com/sveltejs/kit/pull/5414))
+- chore: upgrade TypeScript to 4.7.4 ([#5414](https://github.com/sveltejs/kit/pull/5414))
 
 ## 2.0.0-next.146
 
 ### Patch Changes
 
 - Add vite.config.js to the create-svelte templates ([#5332](https://github.com/sveltejs/kit/pull/5332))
-
-* [breaking] switch to vite CLI for dev, build, and preview commands ([#5332](https://github.com/sveltejs/kit/pull/5332))
+- breaking: switch to vite CLI for dev, build, and preview commands ([#5332](https://github.com/sveltejs/kit/pull/5332))
 
 ## 2.0.0-next.145
 
@@ -383,9 +685,7 @@
 ### Patch Changes
 
 - Enhance docs on importing types in app.d.ts ([#5280](https://github.com/sveltejs/kit/pull/5280))
-
-* Use ESM eslint config files ([#5263](https://github.com/sveltejs/kit/pull/5263))
-
+- Use ESM eslint config files ([#5263](https://github.com/sveltejs/kit/pull/5263))
 - fix formatting for initial package.json ([#5271](https://github.com/sveltejs/kit/pull/5271))
 
 ## 2.0.0-next.142
@@ -398,7 +698,7 @@
 
 ### Patch Changes
 
-- [fix] use inline element in heading ([#5164](https://github.com/sveltejs/kit/pull/5164))
+- fix: use inline element in heading ([#5164](https://github.com/sveltejs/kit/pull/5164))
 
 ## 2.0.0-next.140
 
@@ -411,8 +711,7 @@
 ### Patch Changes
 
 - correct default package.json format ([#5013](https://github.com/sveltejs/kit/pull/5013))
-
-* [breaking] Replace `%svelte.body%` with `%sveltekit.body%`, etc. ([#5016](https://github.com/sveltejs/kit/pull/5016))
+- breaking: Replace `%svelte.body%` with `%sveltekit.body%`, etc. ([#5016](https://github.com/sveltejs/kit/pull/5016))
 
 ## 2.0.0-next.138
 
@@ -467,24 +766,21 @@
 ### Patch Changes
 
 - Ignore .turbo directory when building templates ([#4638](https://github.com/sveltejs/kit/pull/4638))
-
-* Disable type checking by default for non-typescript projects. ([#4621](https://github.com/sveltejs/kit/pull/4621))
-
-- [breaking] move non-essential TypeScript compilerOptions into user-editable config ([#4633](https://github.com/sveltejs/kit/pull/4633))
+- Disable type checking by default for non-typescript projects. ([#4621](https://github.com/sveltejs/kit/pull/4621))
+- breaking: move non-essential TypeScript compilerOptions into user-editable config ([#4633](https://github.com/sveltejs/kit/pull/4633))
 
 ## 2.0.0-next.129
 
 ### Patch Changes
 
 - type check exception handling on form action ([#4532](https://github.com/sveltejs/kit/pull/4532))
-
-* Update broken documentation links for `App` namespaces ([#4627](https://github.com/sveltejs/kit/pull/4627))
+- Update broken documentation links for `App` namespaces ([#4627](https://github.com/sveltejs/kit/pull/4627))
 
 ## 2.0.0-next.128
 
 ### Patch Changes
 
-- [chore] upgrade to Playwright 1.21.0 ([#4601](https://github.com/sveltejs/kit/pull/4601))
+- chore: upgrade to Playwright 1.21.0 ([#4601](https://github.com/sveltejs/kit/pull/4601))
 
 ## 2.0.0-next.127
 
@@ -496,21 +792,20 @@
 
 ### Patch Changes
 
-- [fix] use .ts extension for tests when using TypeScript ([#4368](https://github.com/sveltejs/kit/pull/4368))
+- fix: use .ts extension for tests when using TypeScript ([#4368](https://github.com/sveltejs/kit/pull/4368))
 
 ## 2.0.0-next.125
 
 ### Patch Changes
 
-- [fix] check for app.d.ts rather than global.d.ts ([#4295](https://github.com/sveltejs/kit/pull/4295))
+- fix: check for app.d.ts rather than global.d.ts ([#4295](https://github.com/sveltejs/kit/pull/4295))
 
 ## 2.0.0-next.124
 
 ### Patch Changes
 
 - Add sync CLI command ([#4182](https://github.com/sveltejs/kit/pull/4182))
-
-* Upgrade to TypeScript 4.6 ([#4190](https://github.com/sveltejs/kit/pull/4190))
+- Upgrade to TypeScript 4.6 ([#4190](https://github.com/sveltejs/kit/pull/4190))
 
 ## 2.0.0-next.123
 
@@ -540,7 +835,7 @@
 
 ### Patch Changes
 
-- [fix] update docs URL for App namespace interfaces ([#4042](https://github.com/sveltejs/kit/pull/4042))
+- fix: update docs URL for App namespace interfaces ([#4042](https://github.com/sveltejs/kit/pull/4042))
 
 ## 2.0.0-next.118
 
@@ -565,16 +860,14 @@
 ### Patch Changes
 
 - fix links pointing to multi-page docs ([#3815](https://github.com/sveltejs/kit/pull/3815))
-
-* upgrade to TypeScript 4.5 ([#3809](https://github.com/sveltejs/kit/pull/3809))
+- upgrade to TypeScript 4.5 ([#3809](https://github.com/sveltejs/kit/pull/3809))
 
 ## 2.0.0-next.114
 
 ### Patch Changes
 
 - Add App namespace for app-level types ([#3670](https://github.com/sveltejs/kit/pull/3670))
-
-* Remove target option ([#3674](https://github.com/sveltejs/kit/pull/3674))
+- Remove target option ([#3674](https://github.com/sveltejs/kit/pull/3674))
 
 ## 2.0.0-next.113
 
@@ -659,9 +952,7 @@
 ### Patch Changes
 
 - Respect Ctrl-C when running create-svelte ([#3472](https://github.com/sveltejs/kit/pull/3472))
-
-* Make project name an explicit option' ([#3472](https://github.com/sveltejs/kit/pull/3472))
-
+- Make project name an explicit option' ([#3472](https://github.com/sveltejs/kit/pull/3472))
 - Prompt for directory when running create-svelte without argument ([#3472](https://github.com/sveltejs/kit/pull/3472))
 
 ## 2.0.0-next.98
@@ -680,7 +971,7 @@
 
 ### Patch Changes
 
-- Breaking: change app.render signature to (request: Request) => Promise (#3384) ([#3430](https://github.com/sveltejs/kit/pull/3430))
+- breaking: change app.render signature to (request: Request) => Promise (#3384) ([#3430](https://github.com/sveltejs/kit/pull/3430))
 
 ## 2.0.0-next.95
 
@@ -717,12 +1008,9 @@
 ### Patch Changes
 
 - bump eslint ecmaVersion to 2020 ([#2985](https://github.com/sveltejs/kit/pull/2985))
-
-* include missing .npmrc in templates ([#2990](https://github.com/sveltejs/kit/pull/2990))
-
+- include missing .npmrc in templates ([#2990](https://github.com/sveltejs/kit/pull/2990))
 - Do not gitignore `.env.example` ([#2926](https://github.com/sveltejs/kit/pull/2926))
-
-* update to esbuild 0.13.15 and other dependency updates ([#2957](https://github.com/sveltejs/kit/pull/2957))
+- update to esbuild 0.13.15 and other dependency updates ([#2957](https://github.com/sveltejs/kit/pull/2957))
 
 ## 2.0.0-next.89
 
@@ -747,8 +1035,7 @@
 ### Patch Changes
 
 - Add adapter-auto ([#2867](https://github.com/sveltejs/kit/pull/2867))
-
-* Add an npm run package command to templates ([#2882](https://github.com/sveltejs/kit/pull/2882))
+- Add an npm run package command to templates ([#2882](https://github.com/sveltejs/kit/pull/2882))
 
 ## 2.0.0-next.85
 
@@ -766,27 +1053,26 @@
 
 ### Patch Changes
 
-- [breaking] drop Node 12 support ([#2604](https://github.com/sveltejs/kit/pull/2604))
+- breaking: drop Node 12 support ([#2604](https://github.com/sveltejs/kit/pull/2604))
 
 ## 2.0.0-next.82
 
 ### Patch Changes
 
-- [chore] upgrade to Svelte 3.43.0" ([#2474](https://github.com/sveltejs/kit/pull/2474))
+- chore: upgrade to Svelte 3.43.0" ([#2474](https://github.com/sveltejs/kit/pull/2474))
 
 ## 2.0.0-next.81
 
 ### Patch Changes
 
-- [fix] provide valid value for `letter-spacing` CSS property ([#2437](https://github.com/sveltejs/kit/pull/2437))
-
-* update dependencies ([#2447](https://github.com/sveltejs/kit/pull/2447))
+- fix: provide valid value for `letter-spacing` CSS property ([#2437](https://github.com/sveltejs/kit/pull/2437))
+- update dependencies ([#2447](https://github.com/sveltejs/kit/pull/2447))
 
 ## 2.0.0-next.80
 
 ### Patch Changes
 
-- [chore] add links to repository and homepage to package.json ([#2425](https://github.com/sveltejs/kit/pull/2425))
+- chore: add links to repository and homepage to package.json ([#2425](https://github.com/sveltejs/kit/pull/2425))
 
 ## 2.0.0-next.79
 
@@ -1137,7 +1423,7 @@
 
 ### Patch Changes
 
-- 00cbaf6: Rename _.config.js to _.config.cjs ([#356](https://github.com/sveltejs/kit/pull/356))
+- 00cbaf6: Rename `_.config.js` to `_.config.cjs` ([#356](https://github.com/sveltejs/kit/pull/356))
 
 ## 2.0.0-next.25
 

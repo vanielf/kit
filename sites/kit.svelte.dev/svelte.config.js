@@ -1,16 +1,14 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-vercel';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter()
-	},
+		adapter: adapter({
+			runtime: 'edge'
+		}),
 
-	vitePlugin: {
-		experimental: {
-			inspector: {
-				holdMode: true
-			}
+		paths: {
+			relative: true
 		}
 	}
 };

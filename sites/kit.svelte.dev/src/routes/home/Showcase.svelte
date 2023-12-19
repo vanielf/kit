@@ -1,19 +1,18 @@
 <script>
-	import Image from '$lib/Image.svelte';
-	import Section from '@sveltejs/site-kit/components/Section.svelte';
-	import pudding from './showcase/pudding.png';
-	import pocketbase from './showcase/pocketbase.png';
-	import pronauns from './showcase/pronauns.png';
-	import dropzone from './showcase/dropzone.png';
-	import asmeditor from './showcase/asmeditor.png';
-	import monogram from './showcase/monogram.png';
-	import raster from './showcase/raster.png';
-	import tradingstrategy from './showcase/tradingstrategy.png';
+	import { Section } from '@sveltejs/site-kit/components';
+	import pudding from './showcase/pudding.png?enhanced';
+	import pocketbase from './showcase/pocketbase.png?enhanced';
+	import pronauns from './showcase/pronauns.png?enhanced';
+	import pausly from './showcase/pausly.png?enhanced';
+	import asmeditor from './showcase/asmeditor.png?enhanced';
+	import monogram from './showcase/monogram.png?enhanced';
+	import raster from './showcase/raster.png?enhanced';
+	import tradingstrategy from './showcase/tradingstrategy.png?enhanced';
 
 	const showcase = [
 		{ url: 'pudding.cool', image: pudding },
 		{ url: 'www.pronauns.com', image: pronauns },
-		{ url: 'dropzone.dev', image: dropzone },
+		{ url: 'www.pausly.app', image: pausly },
 		{ url: 'asm-editor.specy.app', image: asmeditor },
 		{ url: 'raster.app', image: raster },
 		{ url: 'pocketbase.io', image: pocketbase },
@@ -28,7 +27,7 @@
 	<div class="showcase">
 		{#each showcase as { url, image }}
 			<a href="https://{url}" target="_blank" rel="noreferrer">
-				<Image src={image} alt="" />
+				<enhanced:img src={image} alt="" style="width:100%; height:100%; object-fit:cover" />
 				<span>{url}</span>
 			</a>
 		{/each}

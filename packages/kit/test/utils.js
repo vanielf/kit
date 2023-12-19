@@ -1,5 +1,7 @@
-import fs from 'fs';
-import http from 'http';
+import fs from 'node:fs';
+import http from 'node:http';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { test as base, devices } from '@playwright/test';
 
 export const test = base.extend({
@@ -71,11 +73,27 @@ export const test = base.extend({
 		/** @param {string} selector */
 		async function in_view(selector) {
 			const box = await page.locator(selector).boundingBox();
-			const view = await page.viewportSize();
+			const view = page.viewportSize();
 			return box && view && box.y < view.height && box.y + box.height > 0;
 		}
 
 		use(in_view);
+	},
+
+	get_computed_style: async ({ page }, use) => {
+		/**
+		 * @param {string} selector
+		 * @param {string} prop
+		 */
+		async function get_computed_style(selector, prop) {
+			return page.$eval(
+				selector,
+				(node, prop) => window.getComputedStyle(node).getPropertyValue(prop),
+				prop
+			);
+		}
+
+		await use(get_computed_style);
 	},
 
 	page: async ({ page, javaScriptEnabled }, use) => {
@@ -91,7 +109,7 @@ export const test = base.extend({
 			page[fn] = async function (...args) {
 				const res = await page_fn.call(page, ...args);
 				if (javaScriptEnabled && args[1]?.wait_for_started !== false) {
-					await page.waitForSelector('body.started', { timeout: 5000 });
+					await page.waitForSelector('body.started', { timeout: 15000 });
 				}
 				return res;
 			};
@@ -100,6 +118,7 @@ export const test = base.extend({
 		await use(page);
 	},
 
+	// eslint-disable-next-line no-empty-pattern
 	read_errors: ({}, use) => {
 		/** @param {string} path */
 		function read_errors(path) {
@@ -110,6 +129,91 @@ export const test = base.extend({
 		}
 
 		use(read_errors);
+	},
+
+	// eslint-disable-next-line no-empty-pattern
+	start_server: async ({}, use) => {
+		/**
+		 * @type {http.Server}
+		 */
+		let server;
+
+		/**
+		 * @type {Set<import('net').Socket>}
+		 */
+		let sockets;
+
+		/**
+		 * @param {(req: http.IncomingMessage, res: http.ServerResponse) => void} handler
+		 */
+		async function start_server(handler) {
+			if (server) {
+				throw new Error('server already started');
+			}
+			server = http.createServer(handler);
+
+			await new Promise((fulfil) => {
+				server.listen(0, 'localhost', () => {
+					fulfil(undefined);
+				});
+			});
+
+			const { port } = /** @type {import('net').AddressInfo} */ (server.address());
+			if (!port) {
+				throw new Error(`Could not find port from server ${JSON.stringify(server.address())}`);
+			}
+			sockets = new Set();
+			server.on('connection', (socket) => {
+				sockets.add(socket);
+				socket.on('close', () => {
+					sockets.delete(socket);
+				});
+			});
+			return {
+				port
+			};
+		}
+		await use(start_server);
+
+		// @ts-expect-error use before set
+		if (server) {
+			// @ts-expect-error use before set
+			if (sockets) {
+				sockets.forEach((socket) => {
+					if (!socket.destroyed) {
+						socket.destroy();
+					}
+				});
+			}
+
+			await new Promise((fulfil, reject) => {
+				server.close((err) => {
+					if (err) {
+						reject(err);
+					} else {
+						fulfil(undefined);
+					}
+				});
+			});
+		}
+	},
+
+	// make sure context fixture depends on start server, so setup/teardown order is
+	// setup start_server
+	// setup context
+	// teardown context
+	// teardown start_server
+	async context({ context, start_server }, use) {
+		// just here make sure start_server is referenced, don't call
+		if (!start_server) {
+			throw new Error('start_server fixture not present');
+		}
+		await use(context);
+		try {
+			await context.close();
+		} catch (e) {
+			console.error('failed to close context fixture', e);
+		}
 	}
 });
 
@@ -161,38 +265,13 @@ export const config = {
 		screenshot: 'only-on-failure',
 		trace: 'retain-on-failure'
 	},
-	workers: process.env.CI ? 2 : undefined
+	workers: process.env.CI ? 2 : undefined,
+	reporter: process.env.CI
+		? [
+				['dot'],
+				[path.resolve(fileURLToPath(import.meta.url), '../github-flaky-warning-reporter.js')]
+			]
+		: 'list',
+	testDir: 'test',
+	testMatch: /(.+\.)?(test|spec)\.[jt]s/
 };
-
-/**
- * @param {(req: http.IncomingMessage, res: http.ServerResponse) => void} handler
- */
-export async function start_server(handler) {
-	const server = http.createServer(handler);
-
-	await new Promise((fulfil) => {
-		server.listen(0, 'localhost', () => {
-			fulfil(undefined);
-		});
-	});
-
-	const { port } = /** @type {import('net').AddressInfo} */ (server.address());
-	if (!port) {
-		throw new Error(`Could not find port from server ${JSON.stringify(server.address())}`);
-	}
-
-	return {
-		port,
-		close: () => {
-			return new Promise((fulfil, reject) => {
-				server.close((err) => {
-					if (err) {
-						reject(err);
-					} else {
-						fulfil(undefined);
-					}
-				});
-			});
-		}
-	};
-}

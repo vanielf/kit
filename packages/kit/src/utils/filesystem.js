@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 
 /** @param {string} dir */
 export function mkdirp(dir) {
@@ -83,6 +83,7 @@ export function copy(source, target, opts = {}) {
  * Get a list of all files in a directory
  * @param {string} cwd - the directory to walk
  * @param {boolean} [dirs] - whether to include directories in the result
+ * @returns {string[]} a list of all found files (and possibly directories) relative to `cwd`
  */
 export function walk(cwd, dirs = false) {
 	/** @type {string[]} */
@@ -174,4 +175,9 @@ export function resolve_entry(entry) {
 	}
 
 	return null;
+}
+
+/** @param {string} file */
+export function read(file) {
+	return fs.readFileSync(file, 'utf-8');
 }

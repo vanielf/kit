@@ -57,11 +57,11 @@ import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageLoad} */
 export function load(event) {
-	throw error(404, 'Not Found');
+	error(404, 'Not Found');
 }
 ```
 
-> If you don't handle 404 cases, they will appear in [`handleError`](/docs/hooks#shared-hooks-handleerror)
+> If you don't handle 404 cases, they will appear in [`handleError`](hooks#shared-hooks-handleerror)
 
 ## Optional parameters
 
@@ -71,7 +71,7 @@ Note that an optional route parameter cannot follow a rest parameter (`[...rest]
 
 ## Matching
 
-A route like `src/routes/archive/[page]` would match `/archive/3`, but it would also match `/archive/potato`. We don't want that. You can ensure that route parameters are well-formed by adding a _matcher_ — which takes the parameter string (`"3"` or `"potato"`) and returns `true` if it is valid — to your [`params`](/docs/configuration#files) directory...
+A route like `src/routes/archive/[page]` would match `/archive/3`, but it would also match `/archive/potato`. We don't want that. You can ensure that route parameters are well-formed by adding a _matcher_ — which takes the parameter string (`"3"` or `"potato"`) and returns `true` if it is valid — to your [`params`](configuration#files) directory...
 
 ```js
 /// file: src/params/integer.js
@@ -90,6 +90,8 @@ export function match(param) {
 
 If the pathname doesn't match, SvelteKit will try to match other routes (using the sort order specified below), before eventually returning a 404.
 
+Each module in the `params` directory corresponds to a matcher, with the exception of `*.test.js` and `*.spec.js` files which may be used to unit test your matchers.
+
 > Matchers run both on the server and in the browser.
 
 ## Sorting
@@ -98,7 +100,7 @@ It's possible for multiple routes to match a given path. For example each of the
 
 ```bash
 src/routes/[...catchall]/+page.svelte
-src/routes/[[a]]/foo/+page.svelte
+src/routes/[[a=x]]/+page.svelte
 src/routes/[b]/+page.svelte
 src/routes/foo-[c]/+page.svelte
 src/routes/foo-abc/+page.svelte
@@ -116,7 +118,7 @@ SvelteKit needs to know which route is being requested. To do so, it sorts them 
 ```bash
 src/routes/foo-abc/+page.svelte
 src/routes/foo-[c]/+page.svelte
-src/routes/[[a]]/foo/+page.svelte
+src/routes/[[a=x]]/+page.svelte
 src/routes/[b]/+page.svelte
 src/routes/[...catchall]/+page.svelte
 ```
@@ -168,7 +170,7 @@ By default, the _layout hierarchy_ mirrors the _route hierarchy_. In some cases,
 
 ### (group)
 
-Perhaps you have some routes that are 'app' routes that should have one layout (e.g. `/dashboard` or `/item`), and others that are 'marketing' routes that should have a different layout (`/blog` or `/testimonials`). We can group these routes with a directory whose name is wrapped in parentheses — unlike normal directories, `(app)` and `(marketing)` do not affect the URL pathname of the routes inside them:
+Perhaps you have some routes that are 'app' routes that should have one layout (e.g. `/dashboard` or `/item`), and others that are 'marketing' routes that should have a different layout (`/about` or `/testimonials`). We can group these routes with a directory whose name is wrapped in parentheses — unlike normal directories, `(app)` and `(marketing)` do not affect the URL pathname of the routes inside them:
 
 ```diff
 src/routes/
@@ -252,7 +254,7 @@ src/routes/
 Not all use cases are suited for layout grouping, nor should you feel compelled to use them. It might be that your use case would result in complex `(group)` nesting, or that you don't want to introduce a `(group)` for a single outlier. It's perfectly fine to use other means such as composition (reusable `load` functions or Svelte components) or if-statements to achieve what you want. The following example shows a layout that rewinds to the root layout and reuses components and functions that other layouts can also use:
 
 ```svelte
-/// file: src/routes/nested/route/+layout@.svelte
+<!--- file: src/routes/nested/route/+layout@.svelte --->
 <script>
 	import ReusableLayout from '$lib/ReusableLayout.svelte';
 	export let data;
@@ -279,3 +281,7 @@ export function load(event) {
 	return reusableLoad(event);
 }
 ```
+
+## Further reading
+
+- [Tutorial: Advanced Routing](https://learn.svelte.dev/tutorial/optional-params)

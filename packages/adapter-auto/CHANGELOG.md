@@ -1,10 +1,82 @@
 # @sveltejs/adapter-auto
 
+## 3.0.0
+
+### Major Changes
+
+- breaking: require SvelteKit 2 ([#11316](https://github.com/sveltejs/kit/pull/11316))
+
+## 2.1.1
+
+### Patch Changes
+
+- chore(deps): update dependency `import-meta-resolve` to v4 ([#10970](https://github.com/sveltejs/kit/pull/10970))
+
+- Updated dependencies [[`072430ec5`](https://github.com/sveltejs/kit/commit/072430ec5c64782cd25c750f40534fea9cab4b40)]:
+  - @sveltejs/kit@1.27.3
+
+## 2.1.0
+
+### Minor Changes
+
+- [feat] support AWS via SST ([#9874](https://github.com/sveltejs/kit/pull/9874))
+
+## 2.0.1
+
+### Patch Changes
+
+- chore: update dependency `import-meta-resolve` to v3 ([#9758](https://github.com/sveltejs/kit/pull/9758))
+
+- Updated dependencies [[`aae5992e4`](https://github.com/sveltejs/kit/commit/aae5992e4568d93b477befe02b4018a59a298262), [`415358258`](https://github.com/sveltejs/kit/commit/415358258797911a8406c3b1e569b7cdcae6b207)]:
+  - @sveltejs/kit@1.15.8
+
+## 2.0.0
+
+### Major Changes
+
+- breaking: bump `@sveltejs/kit` peer dependency ([#8740](https://github.com/sveltejs/kit/pull/8740))
+
+### Patch Changes
+
+- Updated dependencies [[`c7648f66`](https://github.com/sveltejs/kit/commit/c7648f6608a413e2654625cbd30f890d2148cf13), [`63613bf1`](https://github.com/sveltejs/kit/commit/63613bf194c18ce50e111585ad770fc93f9e43c7), [`d1f7655e`](https://github.com/sveltejs/kit/commit/d1f7655efdff70d91f94fe0cb0de50ed2511b5e5)]:
+  - @sveltejs/kit@1.5.0
+
+## 1.0.3
+
+### Patch Changes
+
+- fix: pin adapter versions ([#8874](https://github.com/sveltejs/kit/pull/8874))
+
+- Updated dependencies [[`f8dd7754`](https://github.com/sveltejs/kit/commit/f8dd7754ea21b11063613aac7d0d6cd98fc28b8e), [`fafe7d5f`](https://github.com/sveltejs/kit/commit/fafe7d5f033b249d554879b5ab7bc641f0ace362), [`e56a13c6`](https://github.com/sveltejs/kit/commit/e56a13c68a7d885f83f519c43f3510f10fee4ca5), [`02bd767d`](https://github.com/sveltejs/kit/commit/02bd767d3277a840b480fe94444cd1c886ef519b), [`97d68b13`](https://github.com/sveltejs/kit/commit/97d68b1381c1e0d052a0978824e96b9f50d248a9), [`2ef9b7d1`](https://github.com/sveltejs/kit/commit/2ef9b7d124809ce6a9804abbeaa4647a99fac97c), [`64a279f7`](https://github.com/sveltejs/kit/commit/64a279f7f92dcd4855af83fcbb09ea5ba1521ee8)]:
+  - @sveltejs/kit@1.4.0
+
+## 1.0.2
+
+### Patch Changes
+
+- docs: move adapter docs to site ([#8531](https://github.com/sveltejs/kit/pull/8531))
+
+## 1.0.1
+
+### Patch Changes
+
+- chore: remove superfluous main field from package.json ([#8519](https://github.com/sveltejs/kit/pull/8519))
+
+- Updated dependencies [[`7e2d3405`](https://github.com/sveltejs/kit/commit/7e2d34056e99f371e22406d941b764df365a2649)]:
+  - @sveltejs/kit@1.1.1
+
+## 1.0.0
+
+### Major Changes
+
+First major release, see below for the history of changes that lead up to this.
+Starting from now all releases follow semver and changes will be listed as Major/Minor/Patch
+
 ## 1.0.0-next.91
 
 ### Patch Changes
 
-- [chore] add peerDependencies, add more specific next version ([#8141](https://github.com/sveltejs/kit/pull/8141))
+- chore: add peerDependencies, add more specific next version ([#8141](https://github.com/sveltejs/kit/pull/8141))
 
 ## 1.0.0-next.90
 
@@ -22,7 +94,7 @@
 
 ### Patch Changes
 
-- [feat] install adapters on demand ([#7462](https://github.com/sveltejs/kit/pull/7462))
+- feat: install adapters on demand ([#7462](https://github.com/sveltejs/kit/pull/7462))
 
 ## 1.0.0-next.87
 
@@ -37,7 +109,6 @@
 ### Patch Changes
 
 - update dependencies ([#7355](https://github.com/sveltejs/kit/pull/7355))
-
 - Updated dependencies [[`e141513d`](https://github.com/sveltejs/kit/commit/e141513dd395466cc2e1649c8c9bfe36c0633846)]:
   - @sveltejs/adapter-cloudflare@1.0.0-next.40
   - @sveltejs/adapter-netlify@1.0.0-next.83
@@ -135,8 +206,7 @@
 
 ### Patch Changes
 
-- [feat] support Azure SWA ([#6761](https://github.com/sveltejs/kit/pull/6761))
-
+- feat: support Azure SWA ([#6761](https://github.com/sveltejs/kit/pull/6761))
 - Updated dependencies [[`2040baee`](https://github.com/sveltejs/kit/commit/2040baee98cf85fe542e1e38a9fb60ede3f95f1d)]:
   - @sveltejs/adapter-vercel@1.0.0-next.75
   - @sveltejs/adapter-netlify@1.0.0-next.77
@@ -289,8 +359,7 @@
 
 ### Patch Changes
 
-- [chore] upgrade TypeScript to 4.7.4 ([#5414](https://github.com/sveltejs/kit/pull/5414))
-
+- chore: upgrade TypeScript to 4.7.4 ([#5414](https://github.com/sveltejs/kit/pull/5414))
 - Updated dependencies [[`3799a89e`](https://github.com/sveltejs/kit/commit/3799a89e7913b71da4dab749ec1423215c4a20a1)]:
   - @sveltejs/adapter-cloudflare@1.0.0-next.26
   - @sveltejs/adapter-netlify@1.0.0-next.67
@@ -333,7 +402,6 @@
 ### Patch Changes
 
 - Update dependencies ([#5121](https://github.com/sveltejs/kit/pull/5121))
-
 - Updated dependencies [[`821592f3`](https://github.com/sveltejs/kit/commit/821592f36e4e507cbfa5a0e0a1ee99be9991e827)]:
   - @sveltejs/adapter-cloudflare@1.0.0-next.23
   - @sveltejs/adapter-netlify@1.0.0-next.64
@@ -344,7 +412,6 @@
 ### Patch Changes
 
 - Update adapter entrypoint typings to be NodeNext/ESNext-compatible ([#5111](https://github.com/sveltejs/kit/pull/5111))
-
 - Updated dependencies [[`7d5fb308`](https://github.com/sveltejs/kit/commit/7d5fb3083a428c4b045d7845138efdb40e1ebad8)]:
   - @sveltejs/adapter-cloudflare@1.0.0-next.22
   - @sveltejs/adapter-netlify@1.0.0-next.63
@@ -364,7 +431,6 @@
 ### Patch Changes
 
 - Add types to pkg.exports ([#5045](https://github.com/sveltejs/kit/pull/5045))
-
 - Updated dependencies [[`9b13c61c`](https://github.com/sveltejs/kit/commit/9b13c61c68ac4fe601e0a95cf958f7b63fa7a754)]:
   - @sveltejs/adapter-cloudflare@1.0.0-next.20
   - @sveltejs/adapter-netlify@1.0.0-next.61
@@ -489,7 +555,6 @@
 ### Patch Changes
 
 - Select adapter immediately ([#4299](https://github.com/sveltejs/kit/pull/4299))
-
 - Updated dependencies []:
   - @sveltejs/adapter-netlify@1.0.0-next.50
   - @sveltejs/adapter-vercel@1.0.0-next.46
@@ -535,7 +600,6 @@
 ### Patch Changes
 
 - Bumping versions again ([#4090](https://github.com/sveltejs/kit/pull/4090))
-
 - Updated dependencies [[`69401762`](https://github.com/sveltejs/kit/commit/694017624ec8f1abaad7ebefb867bb065f7adf05)]:
   - @sveltejs/adapter-cloudflare@1.0.0-next.14
 
@@ -544,7 +608,6 @@
 ### Patch Changes
 
 - Attempt to force @next version bump ([#4088](https://github.com/sveltejs/kit/pull/4088))
-
 - Updated dependencies [[`46f44a61`](https://github.com/sveltejs/kit/commit/46f44a61624bed525e393e669da9b7db566a1e18)]:
   - @sveltejs/adapter-cloudflare@1.0.0-next.13
 
@@ -593,7 +656,6 @@
 ### Patch Changes
 
 - fix links pointing to multi-page docs ([#3815](https://github.com/sveltejs/kit/pull/3815))
-
 - Updated dependencies []:
   - @sveltejs/adapter-cloudflare@1.0.0-next.10
   - @sveltejs/adapter-netlify@1.0.0-next.45
@@ -674,7 +736,6 @@
 ### Patch Changes
 
 - Allow `__fetchPolyfill()` to run several times ([#3377](https://github.com/sveltejs/kit/pull/3377))
-
 - Updated dependencies [[`7569bb27`](https://github.com/sveltejs/kit/commit/7569bb27a640c2bbff6ac02a4c44fdf456bdc227)]:
   - @sveltejs/adapter-netlify@1.0.0-next.39
   - @sveltejs/adapter-vercel@1.0.0-next.37
@@ -716,7 +777,6 @@
 ### Patch Changes
 
 - Overhaul adapter API ([#2931](https://github.com/sveltejs/kit/pull/2931))
-
 - Updated dependencies [[`ecb423b5`](https://github.com/sveltejs/kit/commit/ecb423b54d459be8c0693c723799be4171369afd), [`ecb423b5`](https://github.com/sveltejs/kit/commit/ecb423b54d459be8c0693c723799be4171369afd), [`c096899f`](https://github.com/sveltejs/kit/commit/c096899f12c96de34811b6f9ebfc1601d39daa2e), [`ecb423b5`](https://github.com/sveltejs/kit/commit/ecb423b54d459be8c0693c723799be4171369afd), [`ecb423b5`](https://github.com/sveltejs/kit/commit/ecb423b54d459be8c0693c723799be4171369afd)]:
   - @sveltejs/adapter-cloudflare@1.0.0-next.5
   - @sveltejs/adapter-netlify@1.0.0-next.37

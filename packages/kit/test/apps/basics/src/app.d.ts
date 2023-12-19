@@ -1,10 +1,19 @@
-declare namespace App {
-	interface Locals {
-		answer: number;
-		name?: string;
-		key: string;
-		params: Record<string, string>;
-	}
+declare global {
+	namespace App {
+		interface Locals {
+			answer: number;
+			name?: string;
+			key: string;
+			params: Record<string, string>;
+			url?: URL;
+		}
 
-	interface Platform {}
+		interface PageState {
+			active: boolean;
+		}
+
+		interface Platform {}
+	}
 }
+
+export {};
